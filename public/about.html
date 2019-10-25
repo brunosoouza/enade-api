@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>API ENADE</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+</head>
+
+<body>
+    <div class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">Estrutura da API</h1>
+                <hr>
+                <div class="box">
+                    <div class="level">
+                        <div class="level-left">
+                            <div class="level-item">
+                                <h1 class="sutitle is-4">
+                                    Todas as operações são feitas usando a rota:
+                                    <strong>/questoes</strong>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <span class="title is-4">metodo GET:</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item ">
+                            <strong class="has-text-link">/questoes</strong>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <div class="level-item">
+                            Exibe todas as questões que estão salvas na api
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item ">
+                            <strong class="has-text-link">/questoes/id</strong>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <div class="level-item">
+                            Exibe apenas um documento da coleção com base no seu id
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <span class="title is-4">metodo DELETE:</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item ">
+                            <strong class="has-text-link">/questoes - parametro: id </strong>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <div class="level-item">
+                            Apaga um documento da coleção com base no seu id
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <span class="title is-4">metodo PUT:</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item ">
+                            <strong class="has-text-link">/questoes - parametros:
+                                id, enunciado, resA, resB, resC, resD, correta
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <div class="level-item">
+                            Atualiza um documento com os valores dos parametros passados
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <span class="title is-4">metodo POST:</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item ">
+                            <strong class="has-text-link">/questoes - parametros:
+                                enunciado, resA, resB, resC, resD, correta
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <div class="level-item">
+                            cria um novo documento com base os valores passados
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="level">
+                        <div class="level-left">
+                            <div class="level-item">
+                                <span class="subtitle is-6">Obs: <strong>uma operção feita com sucesso retorn sempre
+                                        <span class="has-text-info">"feito"</span></strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="level">
+                    <h1 class="title">Ainda tem duvidas?</h1>
+                </div>
+                <div class="level">
+                    <h1 class="subtitle">
+                        Confira um exemplo referente ao uso do metodo <strong>POST</strong> abaixo
+                        usando a biblioteca <strong>Axios</strong>
+                    </h1>
+                </div>
+                <div>
+                    <pre>
+                        <code>
+    let definicoes = {
+        method: 'post',
+        url: "/questoes",
+        data: {
+            enunciado: "criando um enunciado",
+            resA: "resposta a",
+            resB: "resposta b",
+            resC: "resposta C",
+            resD: "resposta D",
+            correta: "resposta correta"
+        },
+    config: { headers: { 'Content-Type': 'multipart/form-data' } },
+    }
+    axios(definicoes).then(resposta => console.log(resposta))
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    let config = {
+        method: 'post',
+        url: "/questoes",
+        data: {
+            enunciado: "criando um enunciado",
+            resA: "resposta a",
+            resB: "resposta b",
+            resC: "resposta C",
+            resD: "resposta D",
+            correta: "resposta correta"
+        },
+        config: { headers: { 'Content-Type': 'multipart/form-data' } },
+        //config: { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } },
+    }
+    axios(config).then(resposta => console.log(resposta))
+</script>
+
+</html>

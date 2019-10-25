@@ -1,0 +1,22 @@
+{
+  "name": "api-rest",
+  "version": "1.0.0",
+  "description": "API - CRUD questoes enade",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node serve.js"
+  },
+  "keywords": [
+    "API",
+    "REST",
+    "ENADE"
+  ],
+  "author": "BRUNO SOUZA",
+  "dependencies": {
+    "@hapi/hapi": "^18.4.0",
+    "@hapi/inert": "^5.2.2",
+    "mongodb": "^3.3.3",
+    "mongoose": "^5.7.6"
+  }
+}
