@@ -163,23 +163,4 @@
         </div>
     </div>
 </body>
-<script>
-
-    let config = {
-        method: 'post',
-        url: "/questoes",
-        data: {
-            enunciado: "criando um enunciado",
-            resA: "resposta a",
-            resB: "resposta b",
-            resC: "resposta C",
-            resD: "resposta D",
-            correta: "resposta correta"
-        },
-        config: { headers: { 'Content-Type': 'multipart/form-data' } },
-        //config: { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } },
-    }
-    axios(config).then(resposta => console.log(resposta))
-</script>
-
 </html>
