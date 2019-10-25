@@ -1,5 +1,5 @@
 # Enade-api
-api rest para questoes do enade
+api rest para questões do enade
 
 # Instruções
 
