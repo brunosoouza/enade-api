@@ -6,6 +6,14 @@ const { apagar } = require("../db/apagar")
 const { update } = require("../db/update")
 const { searchOne } = require("../db/searchOne")
 const { desconectar } = require("../db/desconectar")
+const { verificaResposta } = require("../db/verifica")
+
+const verifica = new rota("POST", '/questoes/verifica', async (request, h) => {
+    conectar()
+    let result = await verificaResposta(request.payload.id, request.payload.resposta).then(result => result)
+    desconectar()
+    return result
+})
 
 const exibeTudo = new rota('GET', '/questoes', async (request, h) => {
     conectar()
@@ -64,11 +72,20 @@ const about = new rota("GET", "/about", (request, h) => {
 })
 
 const _404 = new rota("*", '/{any*}', (request, h) => {
-    return '<h1>404 PAGINA/CAMINHO NAO ENCONTRADO</h1>'
+    //return '<h1>404 PAGINA/CAMINHO NAO ENCONTRADO</h1>'
+    return h.redirect("/about")
 })
 
+
 let container = [
-    exibeTudo, exibeUm, addQuestao, deletar, editar, about, _404
+    exibeTudo,
+    exibeUm,
+    addQuestao,
+    deletar,
+    editar,
+    about,
+    verifica,
+    _404
 ]
 
 exports.container = container
